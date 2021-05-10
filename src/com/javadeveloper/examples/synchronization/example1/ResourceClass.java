@@ -1,7 +1,7 @@
-package com.omidmohebbise.synchronization.example1;
+package com.javadeveloper.examples.synchronization.example1;
 
-public class SynchronizeResourceClass {
-    public synchronized void countInputNumberFiveTimes(int number){
+public class ResourceClass {
+    public void countInputNumberFiveTimes(int number){
         for (int i = 1; i <= 5; i++) {
             System.out.println(number + i);
             try {
