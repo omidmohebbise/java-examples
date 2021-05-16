@@ -1,4 +1,4 @@
-package com.javadeveloper.examples.tricky;
+package com.javadeveloper.core.tricky;
 
 public class IntegerCaching {
     public static void main(String[] args){

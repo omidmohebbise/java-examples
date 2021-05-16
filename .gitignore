@@ -1,2 +1,7 @@
 /.idea/
 /out/
+/java-core/build/
+/java-core/.gradle/
+/java-core/gradle/wrapper/
+/rxjava/gradle/wrapper/
+/rxjava/.gradle/
