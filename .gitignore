@@ -6,3 +6,5 @@
 /rxjava/gradle/wrapper/
 /rxjava/.gradle/
 /rxjava/build/
+/java-parallel/build/
+/java-parallel/.gradle/
