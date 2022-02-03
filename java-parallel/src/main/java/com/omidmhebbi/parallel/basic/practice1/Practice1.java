@@ -1,4 +1,4 @@
-package com.omidmhebbi.parallel;
+package com.omidmhebbi.parallel.basic.practice1;
 
 public class Practice1 {
 

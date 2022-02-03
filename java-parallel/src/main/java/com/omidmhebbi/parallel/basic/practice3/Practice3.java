@@ -1,4 +1,4 @@
-package com.omidmhebbi.parallel;
+package com.omidmhebbi.parallel.basic.practice3;
 
 class MyThreadP3 extends Thread{
     public int counter;
