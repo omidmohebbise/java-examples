@@ -15,7 +15,7 @@ class MyThread extends Thread{
     }
 }
 
-public class Practice5 {
+public class DataRace {
 
     public static void main(String[] args) throws InterruptedException {
         MyThread thread1 = new MyThread("First Thread");
