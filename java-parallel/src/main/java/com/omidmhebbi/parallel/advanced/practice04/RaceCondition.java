@@ -40,8 +40,8 @@ class MyThread extends Thread {
 public class RaceCondition {
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++) {
-            MyThread myThread1 = new MyThread("Doubler" + i);
-            MyThread myThread2 = new MyThread("Adder" + (i*2 + 1));
+            MyCountDownLatchThread myThread1 = new MyCountDownLatchThread("Doubler" + i);
+            MyCountDownLatchThread myThread2 = new MyCountDownLatchThread("Adder" + (i*2 + 1));
             myThread1.start();
             myThread2.start();
             try {
@@ -55,7 +55,7 @@ public class RaceCondition {
 
 
 
-        System.out.println(MyThread.counter);
+        System.out.println(MyCountDownLatchThread.counter);
     }
 
 }
