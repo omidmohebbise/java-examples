@@ -1,4 +1,4 @@
-package com.javadeveloper.core.annotation;
+package com.oms.core.annotation;
 
 @AMarkerAnnotation
 public class AMarkerConsumer {

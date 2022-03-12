@@ -1,4 +1,4 @@
-package com.javadeveloper.core.annotation;
+package com.oms.core.annotation;
 
 public @interface AMultiValueAnnotation {
     int value() default 0;
