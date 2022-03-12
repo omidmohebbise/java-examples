@@ -1,4 +1,4 @@
-package com.javadeveloper.core.tricky;
+package com.oms.core.tricky;
 
 public class FloatingPoint {
     public static void main(String[] arr){

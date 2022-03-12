@@ -1,12 +1,12 @@
-package com.javadeveloper.core.tricky;
+package com.oms.core.tricky;
 
 public class PassByReferenceConfusing {
 
     public static void main(String[] args) {
         Person person = new Person("omid", "mohebbi");
-        System.out.println(person.toString());
+        System.out.println(person);
         changePersonName(person);
-        System.out.println(person.toString());
+        System.out.println(person);
     }
 
     static void changePersonName(Person person) {

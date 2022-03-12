@@ -1,13 +1,13 @@
-package com.javadeveloper.core.synchronization.basic_example;
+package com.oms.core.synchronization.basic_example;
 
 public class ResourceClass {
-    public void countInputNumberFiveTimes(int number){
+    public void countInputNumberFiveTimes(int number) {
         for (int i = 1; i <= 5; i++) {
             System.out.println(number + i);
             try {
                 Thread.sleep(500);
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }

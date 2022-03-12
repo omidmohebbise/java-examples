@@ -1,4 +1,4 @@
-package com.javadeveloper.core.tricky;
+package com.oms.core.tricky;
 
 public class IntegerCaching {
     public static void main(String[] args){
@@ -14,10 +14,10 @@ public class IntegerCaching {
         Integer num3 = 129;
         Integer num4 = 129;
         if(num3==num4){
-            System.out.println("num1 == num2");
+            System.out.println("num3 == num4");
         }
         else{
-            System.out.println("num1 != num2");
+            System.out.println("num3 != num4");
         }
     }
 

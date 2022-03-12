@@ -1,4 +1,4 @@
-package com.javadeveloper.core.synchronization.basic_example;
+package com.oms.core.synchronization.basic_example;
 
 public class Thread2 extends Thread{
     ResourceClass resourceClass;

@@ -1,4 +1,4 @@
-package com.javadeveloper.core.tricky;
+package com.oms.core.tricky;
 
 public class NullArgument {
     public static void method(Object o) {
