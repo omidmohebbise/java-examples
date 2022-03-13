@@ -1,0 +1,4 @@
+rootProject.name = 'java-module'
+include 'library'
+include 'consumer'
+
