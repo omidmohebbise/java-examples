@@ -11,3 +11,9 @@
 /java-parallel/.gradle/
 /general-excercise/.gradle/
 /general-excercise/build/
+
+/java-module/build/
+/java-module/.gradle/
+
+/java-module/consumer/build/
+/java-module/library/build/
