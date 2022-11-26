@@ -19,3 +19,5 @@
 /java-module/library/build/
 /java-11-example/build/
 /java-11-example/.gradle/
+/java-17-examples/.gradle/
+/java-17-examples/build/
