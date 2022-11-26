@@ -1,0 +1,16 @@
+From d60555dffa00dcf1d6ce537af96debf916ef0256 Mon Sep 17 00:00:00 2001
+From: omid mohebbi <omidmohebbise@gmail.com>
+Date: Sat, 26 Nov 2022 09:31:06 +0300
+Subject: [PATCH] test.c commit
+
+---
+ general-excercise/test.c | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 general-excercise/test.c
+
+diff --git a/general-excercise/test.c b/general-excercise/test.c
+new file mode 100644
+index 0000000..e69de29
+-- 
+2.32.1 (Apple Git-133)
+
