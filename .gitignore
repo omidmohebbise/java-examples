@@ -17,3 +17,5 @@
 
 /java-module/consumer/build/
 /java-module/library/build/
+/java-11-example/build/
+/java-11-example/.gradle/
