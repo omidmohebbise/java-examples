@@ -6,8 +6,23 @@ group = 'com.omidmohebbise'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(21)  // Specify Java 21
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['--enable-preview']  // Enable preview features during compilation
+}
+
+tasks.withType(Test) {
+    jvmArgs += '--enable-preview'  // Enable preview features during tests
+    jvmArgs += "-Djava.library.path=src/main/resources/lib"
+}
+
+tasks.withType(JavaExec) {
+    jvmArgs += '--enable-preview'  // Enable preview features during runtime (if you're running your app via Gradle)
+    jvmArgs += "-Djava.library.path=src/main/resources/lib"  // Set native library path
+
 }
 
 configurations {
