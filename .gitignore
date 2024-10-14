@@ -3,9 +3,9 @@
 /java-core/build/
 /java-core/.gradle/
 /java-core/gradle/wrapper/
-/rxjava/gradle/wrapper/
-/rxjava/.gradle/
-/rxjava/build/
+/lib-examples/rxjava/gradle/wrapper/
+/lib-examples/rxjava/.gradle/
+/lib-examples/rxjava/build/
 /java-parallel/build/
 /java-parallel/.gradle/
 /java-parallel/.gradle/
