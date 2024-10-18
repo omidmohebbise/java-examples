@@ -1,4 +1,4 @@
-package org.example;
+package org.omidmohebbise.java.date.time;
 
 import com.github.javafaker.Faker;
 
