@@ -41,7 +41,7 @@ or records.
 This enhancement, first previewed in JEP 425 and finalized in JEP 444, introduces virtual threads as lightweight,
 efficient threads that are managed by the Java runtime.
 
-#### Key Concepts of JEP 444:
+#### Key Concepts of JEP 444: Virtual Threads:
 
 - Virtual Threads:
     - Virtual threads are lightweight threads, which are much more scalable compared to traditional platform threads (
@@ -82,3 +82,22 @@ efficient threads that are managed by the Java runtime.
 - **Compatibility**: Existing Java code that uses Thread APIs can run with virtual threads with minimal or no
   modification,
   making it easier to adopt.
+
+## JEP 445: Unnamed Classes and Instances Main Methods(Preview)
+
+- **Unnamed Classes**:
+  You don’t need to declare a class explicitly. Instead, the Java program is treated as an unnamed class with an implicit class name.
+  This reduces boilerplate for small programs.
+- **Instance Main Methods**:
+  Allows the use of an instance main method, rather than the static main method typically required for Java programs.
+- **Designed for Simplicity**:
+  Targeted at simplifying beginner Java programming and rapid prototyping.
+
+**How It Works**
+- The source file can contain executable code directly without a named class or static main method.
+- The JVM treats the file as an unnamed class and runs the instance main method or the top-level code.
+
+## JEP 446: Scoped Values (Preview)
+Scoped Values are a new mechanism introduced in Java 21 (as a preview feature) to share immutable data within a well-defined 
+scope, particularly across threads. They are an alternative to ThreadLocal, designed to address its limitations,
+especially in concurrent and structured programming.
