@@ -2,6 +2,7 @@ package com.omidmohebbise.java21examples;
 
 public class Jep440RecordPatterns {
     public record Person(String name, int age) {}
+
     public static void main(String[] args) {
         Object obj = new Person("Alice", 30);
 

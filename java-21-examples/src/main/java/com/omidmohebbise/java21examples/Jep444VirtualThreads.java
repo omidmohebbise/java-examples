@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Jep444VirtualThreads {
     public static void main(String[] args) throws InterruptedException {
-        //example1();
+
         int taskCount = 1_000_000; // Create 1 million tasks
         List<Thread> threads = new ArrayList<>();
 
@@ -30,10 +30,6 @@ public class Jep444VirtualThreads {
         }
 
         System.out.println("All tasks completed and atomicInteger = " + atomicInteger.get());
-    }
 
-    private static void example1() throws InterruptedException {
-        var thread = Thread.ofVirtual().start(() -> System.out.println("Hello"));
-        thread.join();
     }
 }

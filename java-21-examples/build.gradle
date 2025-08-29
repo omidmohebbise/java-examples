@@ -1,29 +1,32 @@
 plugins {
     id 'java'
+    id 'application'  // Apply the application plugin
 }
 
 group = 'com.omidmohebbise'
-
+application {
+    mainClass = 'com.omidmohebbise.java21examples.Jep448VectorAPI'
+}
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)  // Specify Java 21
     }
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.compilerArgs += ['--enable-preview']  // Enable preview features during compilation
 }
 
-tasks.withType(Test) {
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += "-Djava.library.path=src/main/resources/lib"  // Set native library path
+    jvmArgs += ['--enable-preview', '--add-modules', 'jdk.incubator.vector']
+    // Enable preview features and incubator module during runtime
+}
+tasks.withType(Test).configureEach {
     jvmArgs += '--enable-preview'  // Enable preview features during tests
     jvmArgs += "-Djava.library.path=src/main/resources/lib"
 }
 
-tasks.withType(JavaExec) {
-    jvmArgs += '--enable-preview'  // Enable preview features during runtime (if you're running your app via Gradle)
-    jvmArgs += "-Djava.library.path=src/main/resources/lib"  // Set native library path
-
-}
 
 configurations {
     compileOnly {
@@ -34,6 +37,8 @@ configurations {
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
