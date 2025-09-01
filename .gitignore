@@ -58,3 +58,5 @@
 /java-date-time/build/tmp/compileJava/previous-compilation-data.bin
 /java-date-time/.gradle/8.8/checksums/md5-checksums.bin
 /java-date-time/.gradle/8.8/checksums/sha1-checksums.bin
+/java-date-time/.gradle/
+/java-date-time/build/
