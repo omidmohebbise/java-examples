@@ -10,7 +10,7 @@ class MyThread extends Thread{
        System.out.println(Thread.currentThread().getName() + "  => Executing");
     }
 }
-public class FixedThreadPoolExample {
+public class FixedThreadPoolExampleUseBlockingQueue {
     public static void main(String[] args) {
         int processNumber = Runtime.getRuntime().availableProcessors();
         System.out.println(processNumber);
