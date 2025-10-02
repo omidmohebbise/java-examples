@@ -1,6 +1,12 @@
 package com.omidmhebbi.datarace;
 
-public class VolatileExample {
+/**
+ * The volatile keyword in Java ensures that changes to a variable are immediately visible to all threads.
+ * It prevents threads from caching the variable locally, guaranteeing that every read reflects the most recent write.
+ * However, it does not provide atomicity for compound operations like counter++.
+ * Use volatile for simple flags or variables where visibility, not atomicity, is required.
+ */
+public class DataRaceSolutionXVolatileExample {
     private volatile int counter = 0;
 
     public void incrementCounter() {
@@ -12,7 +18,7 @@ public class VolatileExample {
     }
 
     public static void main(String[] args) {
-        VolatileExample counterExample = new VolatileExample();
+        DataRaceSolutionXVolatileExample counterExample = new DataRaceSolutionXVolatileExample();
 
         // Create multiple threads to increment the counter
         Thread thread1 = new Thread(() -> {

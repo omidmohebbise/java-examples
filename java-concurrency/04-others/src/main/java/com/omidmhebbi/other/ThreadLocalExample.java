@@ -1,4 +1,4 @@
-package com.omidmhebbi.datarace;
+package com.omidmhebbi.other;
 
 public class ThreadLocalExample {
 

@@ -11,8 +11,6 @@ public class DataRace {
 
         thread1.join();
         thread2.join();
-
-
         System.out.println("Counter = " + MyThread.counter);
 
 

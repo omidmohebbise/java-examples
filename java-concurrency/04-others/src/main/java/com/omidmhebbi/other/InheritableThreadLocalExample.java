@@ -1,4 +1,4 @@
-package com.omidmhebbi.datarace;
+package com.omidmhebbi.other;
 
 public class InheritableThreadLocalExample {
     private static InheritableThreadLocal<String> threadLocal = new InheritableThreadLocal<>();
