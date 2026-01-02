@@ -1,28 +1,27 @@
+// File: java-concurrency/04-others/src/main/java/com/omidmhebbi/other/CountDownLatchClearExample.java
 package com.omidmhebbi.other;
 
 import java.util.concurrent.CountDownLatch;
 
-/**
- * A CountDownLatch in Java is used to make one or more threads wait until a set of operations being performed in other
- * threads completes. A common use case is waiting for multiple tasks to finish before proceeding.
- */
 public class CountDownLatchExample {
     public static void main(String[] args) throws InterruptedException {
-        int numberOfWorkers = 3;
-        CountDownLatch latch = new CountDownLatch(numberOfWorkers);
+        int numberOfTasks = 3;
+        CountDownLatch latch = new CountDownLatch(numberOfTasks);
 
-        for (int i = 1; i <= numberOfWorkers; i++) {
+        for (int i = 1; i <= 5; i++) {
+            final int taskId = i;
             new Thread(() -> {
-                System.out.println(Thread.currentThread().getName() + " is working");
-                // Simulate work
-                try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
-                System.out.println(Thread.currentThread().getName() + " finished");
-                latch.countDown(); // Signal task completion
-            }, "Worker-" + (i)).start();
+                System.out.println("Task " + taskId + " started.");
+                try {
+                    Thread.sleep(500 + taskId * 300); // Simulate variable work time
+                } catch (InterruptedException ignored) {}
+                System.out.println("Task " + taskId + " completed.");
+                latch.countDown();
+            }).start();
         }
 
-        // Main thread waits for all workers to finish
+        System.out.println("Main thread waiting for tasks to complete...");
         latch.await();
-        System.out.println("All workers finished. Main thread continues.");
+        System.out.println("All tasks completed. Main thread resumes.");
     }
 }
