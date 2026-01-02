@@ -1,5 +1,12 @@
 package com.omidmhebbi.other;
 
+/**
+ * ThreadLocal provides thread-local variables.
+ * Each thread accessing a ThreadLocal variable has its own, independently initialized copy.
+ * This is useful for maintaining per-thread state, such as user sessions or database connections, without using synchronization.
+ * In the example, each thread sets and gets its own value from the ThreadLocal variable,
+ * so their values do not interfere with each other.
+ */
 public class ThreadLocalExample {
 
     public static void main(String[] args) throws InterruptedException {
