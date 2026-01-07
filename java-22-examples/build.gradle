@@ -12,7 +12,7 @@ application {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(22)  // Specify Java 22
+        languageVersion = JavaLanguageVersion.of(25)  // Specify Java 25
     }
 }
 
@@ -73,9 +73,9 @@ tasks.register('runJep423', JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'com.omidmohebbise.java22examples.Jep423RegionPinningForG1'
 
-    // Ensure we run the app with the Java 22 toolchain runtime
+    // Ensure we run the app with the Java 25 toolchain runtime
     javaLauncher = javaToolchains.launcherFor {
-        languageVersion = JavaLanguageVersion.of(22)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 
     // Keep the same runtime flags as other JavaExec tasks
@@ -89,10 +89,4 @@ tasks.register('runJep423', JavaExec) {
             '-Xmx256m',
             '-Xlog:gc*,safepoint:file=build/gc-jep423.log:time,level,tags'
     ]
-
-    // Reasonable defaults; can be overridden with -DbufferSize/-Dcount/-DholdSeconds
-    systemProperty 'bufferSize', System.getProperty('bufferSize', '1048576')
-    systemProperty 'count', System.getProperty('count', '128')
-    systemProperty 'holdSeconds', System.getProperty('holdSeconds', '5')
 }
-
