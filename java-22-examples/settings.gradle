@@ -1,1 +1,7 @@
+// Enable Gradle toolchain auto-provisioning (Gradle 8.8+)
+// This lets the build download a matching JDK (e.g., Java 22) if you don't have it installed locally.
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
 rootProject.name = 'java-22-examples'

@@ -4,17 +4,31 @@ plugins {
 }
 
 group = 'com.omidmohebbise'
+
 application {
-    mainClass = 'com.omidmohebbise.java21examples.Jep448VectorAPI'
+    // Keep this as a simple default; you can change it per-sample (or add dedicated run tasks later)
+    mainClass = 'com.omidmohebbise.java22examples.Jep448VectorAPI'
 }
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(22)  // Specify Java 22
     }
 }
 
+// Allow Gradle to auto-provision toolchains (requires Gradle 8.8+)
+javaToolchains {
+    repositories {
+        // Uses Adoptium/Temurin distributions by default
+        gradlePluginPortal()
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.compilerArgs += ['--enable-preview']  // Enable preview features during compilation
+
+    // Enable incubator Vector API module during compilation (needed for jdk.incubator.vector imports)
+    options.compilerArgs += ['--add-modules', 'jdk.incubator.vector']
 }
 
 tasks.withType(JavaExec).configureEach {
@@ -22,9 +36,13 @@ tasks.withType(JavaExec).configureEach {
     jvmArgs += ['--enable-preview', '--add-modules', 'jdk.incubator.vector']
     // Enable preview features and incubator module during runtime
 }
+
 tasks.withType(Test).configureEach {
     jvmArgs += '--enable-preview'  // Enable preview features during tests
     jvmArgs += "-Djava.library.path=src/main/resources/lib"
+
+    // Enable incubator Vector API module during tests runtime
+    jvmArgs += ['--add-modules', 'jdk.incubator.vector']
 }
 
 
@@ -47,3 +65,34 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.register('runJep423', JavaExec) {
+    group = 'application'
+    description = 'Run JEP 423 (Region Pinning for G1) sample with G1 GC logging enabled'
+
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.omidmohebbise.java22examples.Jep423RegionPinningForG1'
+
+    // Ensure we run the app with the Java 22 toolchain runtime
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(22)
+    }
+
+    // Keep the same runtime flags as other JavaExec tasks
+    jvmArgs += "-Djava.library.path=src/main/resources/lib"
+    jvmArgs += ['--enable-preview', '--add-modules', 'jdk.incubator.vector']
+
+    // G1 + GC logging flags to observe pinning-related behavior
+    jvmArgs += [
+            '-XX:+UseG1GC',
+            '-Xms256m',
+            '-Xmx256m',
+            '-Xlog:gc*,safepoint:file=build/gc-jep423.log:time,level,tags'
+    ]
+
+    // Reasonable defaults; can be overridden with -DbufferSize/-Dcount/-DholdSeconds
+    systemProperty 'bufferSize', System.getProperty('bufferSize', '1048576')
+    systemProperty 'count', System.getProperty('count', '128')
+    systemProperty 'holdSeconds', System.getProperty('holdSeconds', '5')
+}
+
